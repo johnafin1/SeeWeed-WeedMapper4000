@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block title %}Flights{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Uploaded Flights</h1>
+
+    <!-- Upload Form for New Flight -->
+    <div class="container">
+        <h2>Upload New Flight Video - Please be aware .mov file type won't play in Chrome</h2>
+        <form action="{{ url_for('upload_flight') }}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="videoFile">Upload Video:</label>
+                <input type="file" name="videoFile" accept="video/*" class="form-control" id="videoFile" required>
+                <label for="flightName">Flight Name:</label>
+                <input type="text" name="flightName" class="form-control" id="flightName" placeholder="Enter flight name" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload and Create Flight</button>
+        </form>
+    </div>
+    <br><br>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No messages</p>
+        {% endif %}
+    {% endwith %}
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Flight Name</th>
+                <th>Video Preview</th>
+                <th>Prediction</th>
+                <th>Telemetry Data</th>
+                <th>Google Map</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for flight in flights %}
+                <tr>
+                    <td>{{ flight.name }} <br>{{flight.video_path | basename}}</td>
+                    <td>
+                        <a href="{{ url_for('display_upload_video', filename=flight.video_path | basename) }}" target="_blank">
+                            <video width="200" height="200" controls>
+                                {% set ext = flight.video_path.split('.')[-1].lower() %}
+                                {% if ext == 'mp4' %}
+                                    {% set video_type = 'video/mp4' %}
+                                {% elif ext == 'mov' %}
+                                    {% set video_type = 'video/quicktime' %}
+                                {% elif ext == 'avi' %}
+                                    {% set video_type = 'video/x-msvideo' %}
+                                {% else %}
+                                    {% set video_type = 'application/octet-stream' %}
+                                {% endif %}
+                                <source src="{{ url_for('display_upload_video', filename=flight.video_path | basename) }}" type="{{ video_type }}">
+                                Your browser does not support the video tag.
+                            </video>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('display_pred_video', filename=(flight.video_path | basename).rsplit('.', 1)[0] + '_processed.' + (flight.video_path | basename).rsplit('.', 1)[1]) }}" target="_blank">
+                            <video width="200" height="200" controls>
+                                {% set ext = flight.video_path.split('.')[-1].lower() %}
+                                {% if ext == 'mp4' %}
+                                    {% set video_type = 'video/mp4' %}
+                                {% elif ext == 'mov' %}
+                                    {% set video_type = 'video/quicktime' %}
+                                {% elif ext == 'avi' %}
+                                    {% set video_type = 'video/x-msvideo' %}
+                                {% else %}
+                                    {% set video_type = 'application/octet-stream' %}
+                                {% endif %}
+                                <source src="{{ url_for('display_pred_video', filename=(flight.video_path | basename).rsplit('.', 1)[0] + '_processed.' + (flight.video_path | basename).rsplit('.', 1)[1]) }}" type="{{ video_type }}">
+                                Your browser does not support the video tag.
+                            </video>
+                        </a>
+                    </td>
+                    <td>{{ 'Yes' if flight.telemetry_uploaded else 'No' }}</td>
+                    <td>{{ 'Yes' if flight.map_generated else 'No' }}</td>
+                    <td>
+                        <div style="display: flex; flex-direction: column;">
+                            {% if not flight.prediction_done %}
+                                <button onclick="runPrediction('{{ flight.name }}')">Run Prediction</button>
+                                <br><br>
+                                {% endif %}
+                            {% if not flight.telemetry_uploaded %}
+                            
+                                <div class="container">
+                                    <form action="{{ url_for('upload_telemetry', flight_name=flight.name) }}" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label for="telemetryFile">Upload Telemetry:</label>
+                                            <input type="file" name="telemetryFile" accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" class="form-control" id="telemetryFile" required>
+                                            <input type="hidden" name="flightName" value="{{ flight.name }}">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Upload Telemetry</button>
+                                    </form>
+                                </div>
+                            
+                            {% endif %}
+                            {% if not flight.map_generated and flight.prediction_done and flight.telemetry_uploaded %}
+                                <button id="generateMapButton-{{ flight.name }}" onclick="generateMap('{{ flight.name }}')">Generate Map</button>
+                            {% endif %}
+                            
+                            {% if flight.map_generated %}
+                                <a href="{{ url_for('display_map', flight_name=flight.name) }}">View Map</a>
+                            {% endif %}
+
+                            {% if flight.prediction_done %}
+                                <br><br>
+                                <button onclick="runPrediction('{{ flight.name }}')">Rerun Prediction</button>
+                            {% endif %}
+                        </div>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6">No flights uploaded yet.</td>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function runPrediction(flightName) {
+    var url = '{{ url_for('run_prediction', flight_name='PLACEHOLDER') }}'.replace('PLACEHOLDER', flightName);
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({})
+    })
+    .then(response => response.json())
+    .then(data => alert(data.message))
+    .catch(error => console.error('Error:', error));
+    }
+    
+    function generateMap(flightName) {
+    // Show a loading indicator or disable the button to indicate processing
+    const mapButton = document.getElementById(`generateMapButton-${flightName}`);
+    mapButton.disabled = true;
+    mapButton.textContent = 'Generating Map...';
+    var url = '{{ url_for('generate_map', flight_name='PLACEHOLDER') }}'.replace('PLACEHOLDER', flightName);
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.success) {
+            alert(data.message);
+            // Update the button to show the map if generated successfully
+            mapButton.textContent = 'View Map';
+            mapButton.onclick = () => window.open(data.map_url, '_blank');
+        } else {
+            alert('Failed to generate map: ' + data.message);
+            mapButton.textContent = 'Generate Map';
+            mapButton.disabled = false;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to generate map.');
+        mapButton.textContent = 'Generate Map';
+        mapButton.disabled = false;
+    });
+}
+    </script>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Vision</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <style>
+        .logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 10px;
+            width: 200px; /* Set width to 200px */
+            height: 200px; /* Set height to 200px */
+            object-fit: contain; /* This ensures the logo maintains its aspect ratio */
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <img src="{{url_for('static', filename='assets/logo.png')}}" class="logo" alt="Crop Vision Logo">
+        <h2>Crop Vision: Weed Detection</h2>
+        <form action="/predict_images" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Upload Image/Video:</label>
+                <input type="file" name="file[]" accept="image/*,video/*" class="form-control" id="file" multiple>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload and Detect</button>
+        </form>
+
+        <!-- Loading Animation -->
+        <div class="animiation-box">
+            <div class="ball blue"></div>
+            <div class="ball red"></div>
+            <div class="ball yellow"></div>
+            <div class="ball green"></div>
+        </div>
+   </div>
+   <script>
+    $(document).ready(function() {
+        $("form").submit(function() {
+            $(".animiation-box").addClass("display");
+        });
+    });
+    </script>
+   <br>
+   <br>
+   <br>
+   <br>
+     <!-- Button to trigger predictions -->
+   <button onclick="location.href='/predict_demo_images'">Click me for a demo!</button>
+   <br>
+   <br>
+   <!-- Table to display images -->
+   <table class="table">
+       <thead>
+           <tr>
+               <th>Original Image</th>
+               <th>Processed Image</th>
+               <th>Time to Detect</th>
+               <th>Detection count</th>
+           </tr>
+       </thead>
+       <tbody>
+           {% for original, processed, time, count in images_data %}
+           <tr>
+               <td>
+                <a href="{{ url_for('display_demo_upload_image', filename=original.split('/')[-1], _external=True) }}" target="_blank">
+                    <img src="{{ original }}" alt="Original Image" width="200">
+                </a>
+                </td>
+               <td> 
+                <a href="{{ url_for('display_demo_pred_image', filename=processed.split('/')[-1], _external=True) }}" target="_blank">
+                    <img src="{{ processed }}" alt="Processed Image" width="200">
+                </a>
+                </td>
+               <td>{{ time }}s</td>
+               <td>{{ count }}</td>
+           </tr>
+           {% endfor %}
+       </tbody>
+   </table>
+</body>
+</html>

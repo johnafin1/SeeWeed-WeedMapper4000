@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Uploads{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Uploaded Images</h1>
+    
+    <div class="container">
+        <form action="/predict_images" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Upload Image/Video:</label>
+                <input type="file" name="file[]" accept="image/*,video/*" class="form-control" id="file" multiple>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload and Detect</button>
+        </form>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("form").submit(function() {
+                $(".animation-box").addClass("display");
+            });
+        });
+    </script>
+
+    <br><br>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No messages</p>
+        {% endif %}
+    {% endwith %}
+    <br>
+
+    <!-- Table for images with predictions -->
+    <h2>Images with Predictions</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Original Image</th>
+                <th>Processed Image</th>
+                <th>Time to Detect</th>
+                <th>Detection Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for original, processed, time, count in images_with_pred_data %}
+            {% if processed %}
+            <tr>
+                <td>
+                    <a href="{{ url_for('display_upload_image', filename=original.split('/')[-1]) }}" target="_blank">
+                        <img src="{{ url_for('display_upload_image', filename=original.split('/')[-1]) }}" alt="Original Image" width="200">
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ url_for('display_pred_image', filename=processed.split('/')[-1]) }}" target="_blank">
+                        <img src="{{ url_for('display_pred_image', filename=processed.split('/')[-1]) }}" alt="Processed Image" width="200">
+                    </a>
+                </td>
+                <td>{{ time }}</td>
+                <td>{{ count }}</td>
+            </tr>
+            {% endif %}
+            {% else %}
+            <tr>
+                <td colspan="4">No images with predictions yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Table for images without predictions -->
+    <h2>Images Awaiting Predictions</h2>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Original Image</th>
+                <th>
+                    <label for="confidenceThreshold">Confidence Threshold (%):</label>
+                    <input type="number" id="confidenceThreshold" name="confidenceThreshold" min="0" max="100" step="1" value="50">  <!-- Defaulting to 50% -->
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for original in images_data %}
+            <tr>
+                <td>
+                    <a href="{{ url_for('display_upload_image', filename=original.split('/')[-1]) }}" target="_blank">
+                        <img src="{{ url_for('display_upload_image', filename=original.split('/')[-1]) }}" alt="Original Image" width="200">
+                    </a>
+                </td>
+                <td>
+                    <button type="button" onclick="runPrediction('{{ original.split('/')[-1] }}', this)">Run Prediction</button>
+                    <div class="loading" style="display: none;">
+                        <p>Loading...</p>
+                        <div class="progress-bar" style="width: 0%; height: 20px; background-color: blue;"></div>
+                    </div>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2">No images awaiting predictions.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script>
+    function runPrediction(filename, element) {
+        var parentTd = element.parentNode;
+        var loadingIndicator = parentTd.querySelector('.loading');
+        var progressBar = parentTd.querySelector('.progress-bar');
+        var threshold = document.getElementById('confidenceThreshold').value;
+        
+        loadingIndicator.style.display = 'block'; // Show the loading indicator
+        let width = 0;
+        let interval = setInterval(() => {
+            if (width >= 100) {
+                clearInterval(interval);
+            } else {
+                width++;
+                progressBar.style.width = width + '%';
+            }
+        }, 100); // Update the progress bar every 100ms for simulation purposes
+
+        fetch('/predict', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ filename: filename, confidenceThreshold: threshold })
+        })
+        .then(response => response.json())
+        .then(data => {
+            clearInterval(interval); // Clear the simulated progress bar update
+            loadingIndicator.style.display = 'none'; // Hide the loading indicator
+            if (data.status === 'success') {
+                alert('Prediction completed successfully.');
+                window.location.reload(); // Reload the page to see the updated result
+            } else {
+                alert('Prediction failed: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to run prediction.');
+            loadingIndicator.style.display = 'none'; // Hide the loading indicator
+        });
+    }
+</script>
+{% endblock %}

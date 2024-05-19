@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Weed Mapper 4000{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.svg') }}">
+    <style>
+        /* Inline CSS for brand colors */
+        :root {
+            --dark-fern: #142B12;
+            --citron: #BCBF46;
+            --alabaster: #EDE9E2;
+            --jet: #2A2C2E;
+        }
+
+        body {
+            font-family: 'Neue Haas Grotesk', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--alabaster);
+            color: var(--jet);
+        }
+
+        header {
+            background-color: var(--dark-fern);
+            color: var(--alabaster);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 2em;
+            color: var(--citron);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--alabaster);
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        nav ul li a:hover {
+            color: var(--citron);
+        }
+
+        footer {
+            background-color: var(--dark-fern);
+            color: var(--alabaster);
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        main {
+            padding: 20px;
+            margin-bottom: 60px; /* To ensure content is above the footer */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/SeeWeed-Light.svg') }}" alt="SeeWeed Logo">
+            <h1>Weed Mapper 4000</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('display_uploads') }}">Uploads</a></li>
+                <li><a href="{{ url_for('display_flights') }}">Flights</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Content will be injected here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/SeeWeed-Light.svg') }}" alt="SeeWeed Logo">
+            <h1>Weed Mapper 4000</h1>
+        </div>
+        <p>&copy; 2024 SeeWeed</p>
+        {% endblock %}
+    </footer>
+</body>
+</html>
