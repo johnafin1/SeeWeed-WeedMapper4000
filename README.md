@@ -5,12 +5,13 @@ Detecting weeds and plant disease using state of the art computer vision models
 
 ### 1 - Downloading model weight
 
-Download trial6-best.onnx weight file from [here](https://drive.google.com/drive/folders/1wpiO5-o7OZ-W1bboAch4TgbDCmrnGBzk?usp=drive_link) and put in the **weights folder**
+Download best-run2.onnx weight file from [here](https://drive.google.com/file/d/1sZ89FV65LeU4ZpP5f0Lz3r5yPaSc3yQi/view?usp=sharing) or find it included in submissables, and put in the **weights folder**. You can also download a second weights version [here](https://drive.google.com/file/d/11pjiQL2H5mKhTC-fkzECUl2cYeg65aJQ/view?usp=sharing) and rename it best-run2.onnx or go to utils/utils and change the get_weights_path() function
 
 
 ### 2 - Docker Requirements
 
-Before you build Docker Image, make sure you have enough space in your system because the docker image will take 5GB of your storage.
+Before you build Docker Image, make sure you have enough space in your system because the docker image will take 5GB of your storage. 
+Install docker desktop and open it. Ensure an engine is running.
 
 - Storage - 8.75GB
 - RAM - 4GB/8GB
