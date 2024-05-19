@@ -1,0 +1,576 @@
+[
+    {
+        "framerate_offset": 10,
+        "frames_processed": 392,
+        "avg_prediction_time": 2.380778092604417,
+        "total_prediction_time": 92.85034561157227,
+        "base_name": "DJI_0008",
+        "extension": ".MOV"
+    },
+    [
+        {
+            "frame_number": 1,
+            "inference_time": 2.1236703395843506,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.8652108907699585,
+                    "bbox": [
+                        725,
+                        367,
+                        320,
+                        296
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 2,
+            "inference_time": 2.3968124389648438,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.8921860456466675,
+                    "bbox": [
+                        779,
+                        382,
+                        310,
+                        307
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 3,
+            "inference_time": 2.0616796016693115,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.8631460666656494,
+                    "bbox": [
+                        900,
+                        393,
+                        331,
+                        316
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 4,
+            "inference_time": 2.1400935649871826,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.838998556137085,
+                    "bbox": [
+                        1086,
+                        406,
+                        351,
+                        327
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 5,
+            "inference_time": 2.101428747177124,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.883285403251648,
+                    "bbox": [
+                        1217,
+                        413,
+                        367,
+                        328
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 6,
+            "inference_time": 2.1797969341278076,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.9065418243408203,
+                    "bbox": [
+                        1250,
+                        420,
+                        373,
+                        338
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 7,
+            "inference_time": 2.3902196884155273,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.884858250617981,
+                    "bbox": [
+                        1181,
+                        426,
+                        354,
+                        337
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 8,
+            "inference_time": 2.74165940284729,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.8955569267272949,
+                    "bbox": [
+                        1091,
+                        429,
+                        340,
+                        331
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 9,
+            "inference_time": 3.1109237670898438,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.899634838104248,
+                    "bbox": [
+                        977,
+                        426,
+                        335,
+                        331
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 10,
+            "inference_time": 2.6715247631073,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.8578150272369385,
+                    "bbox": [
+                        907,
+                        432,
+                        322,
+                        324
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 11,
+            "inference_time": 2.282114267349243,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.8182818293571472,
+                    "bbox": [
+                        873,
+                        433,
+                        311,
+                        326
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 12,
+            "inference_time": 2.5290284156799316,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.8577901721000671,
+                    "bbox": [
+                        853,
+                        438,
+                        311,
+                        320
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 13,
+            "inference_time": 2.7315211296081543,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.7971251606941223,
+                    "bbox": [
+                        833,
+                        445,
+                        313,
+                        326
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 14,
+            "inference_time": 2.2607669830322266,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.8594989776611328,
+                    "bbox": [
+                        838,
+                        454,
+                        312,
+                        334
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 15,
+            "inference_time": 2.199639081954956,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.7722126245498657,
+                    "bbox": [
+                        862,
+                        519,
+                        311,
+                        309
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 16,
+            "inference_time": 2.265948534011841,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.8090875148773193,
+                    "bbox": [
+                        925,
+                        588,
+                        316,
+                        314
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 17,
+            "inference_time": 2.368940591812134,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.7504098415374756,
+                    "bbox": [
+                        1016,
+                        637,
+                        318,
+                        273
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 18,
+            "inference_time": 2.3976173400878906,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.7441855669021606,
+                    "bbox": [
+                        987,
+                        630,
+                        324,
+                        291
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 19,
+            "inference_time": 2.6055192947387695,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.7084532380104065,
+                    "bbox": [
+                        897,
+                        589,
+                        307,
+                        307
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 20,
+            "inference_time": 2.1364119052886963,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.7423413991928101,
+                    "bbox": [
+                        817,
+                        521,
+                        318,
+                        300
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 21,
+            "inference_time": 2.67535662651062,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.7005664110183716,
+                    "bbox": [
+                        800,
+                        498,
+                        317,
+                        302
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 22,
+            "inference_time": 2.301328659057617,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.7497494220733643,
+                    "bbox": [
+                        788,
+                        474,
+                        322,
+                        331
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 23,
+            "inference_time": 2.578035354614258,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.7779647707939148,
+                    "bbox": [
+                        779,
+                        457,
+                        310,
+                        308
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 24,
+            "inference_time": 2.5930325984954834,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.7690694332122803,
+                    "bbox": [
+                        766,
+                        435,
+                        334,
+                        294
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 25,
+            "inference_time": 2.674870491027832,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.7749800682067871,
+                    "bbox": [
+                        761,
+                        431,
+                        340,
+                        314
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 26,
+            "inference_time": 2.3210620880126953,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.7826135158538818,
+                    "bbox": [
+                        769,
+                        431,
+                        333,
+                        318
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 27,
+            "inference_time": 2.4096951484680176,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.685202419757843,
+                    "bbox": [
+                        882,
+                        440,
+                        314,
+                        285
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 28,
+            "inference_time": 2.365623950958252,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.8744115233421326,
+                    "bbox": [
+                        1134,
+                        387,
+                        337,
+                        324
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 29,
+            "inference_time": 2.171563148498535,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.648530900478363,
+                    "bbox": [
+                        1068,
+                        346,
+                        317,
+                        309
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 30,
+            "inference_time": 2.1671552658081055,
+            "detection_count": 1,
+            "detections": [
+                {
+                    "class_id": 0,
+                    "confidence": 0.9078736305236816,
+                    "bbox": [
+                        442,
+                        277,
+                        322,
+                        303
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_number": 31,
+            "inference_time": 2.9797005653381348,
+            "detection_count": 0,
+            "detections": []
+        },
+        {
+            "frame_number": 32,
+            "inference_time": 2.501627206802368,
+            "detection_count": 0,
+            "detections": []
+        },
+        {
+            "frame_number": 33,
+            "inference_time": 2.1643383502960205,
+            "detection_count": 0,
+            "detections": []
+        },
+        {
+            "frame_number": 34,
+            "inference_time": 2.1729912757873535,
+            "detection_count": 0,
+            "detections": []
+        },
+        {
+            "frame_number": 35,
+            "inference_time": 2.1300268173217773,
+            "detection_count": 0,
+            "detections": []
+        },
+        {
+            "frame_number": 36,
+            "inference_time": 2.1111528873443604,
+            "detection_count": 0,
+            "detections": []
+        },
+        {
+            "frame_number": 37,
+            "inference_time": 2.549957752227783,
+            "detection_count": 0,
+            "detections": []
+        },
+        {
+            "frame_number": 38,
+            "inference_time": 2.1911022663116455,
+            "detection_count": 0,
+            "detections": []
+        },
+        {
+            "frame_number": 39,
+            "inference_time": 2.0964083671569824,
+            "detection_count": 0,
+            "detections": []
+        }
+    ]
+]

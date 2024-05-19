@@ -1,0 +1,462 @@
+[
+    {
+        "frame_number": 1,
+        "inference_time": 2.194938898086548,
+        "detections": 0
+    },
+    {
+        "frame_number": 2,
+        "inference_time": 2.221743583679199,
+        "detections": 1
+    },
+    {
+        "frame_number": 3,
+        "inference_time": 2.169651508331299,
+        "detections": 0
+    },
+    {
+        "frame_number": 4,
+        "inference_time": 2.1664445400238037,
+        "detections": 1
+    },
+    {
+        "frame_number": 5,
+        "inference_time": 2.0901451110839844,
+        "detections": 1
+    },
+    {
+        "frame_number": 6,
+        "inference_time": 2.087907075881958,
+        "detections": 1
+    },
+    {
+        "frame_number": 7,
+        "inference_time": 2.0973970890045166,
+        "detections": 0
+    },
+    {
+        "frame_number": 8,
+        "inference_time": 2.0683813095092773,
+        "detections": 2
+    },
+    {
+        "frame_number": 9,
+        "inference_time": 2.262213945388794,
+        "detections": 0
+    },
+    {
+        "frame_number": 10,
+        "inference_time": 2.1409194469451904,
+        "detections": 2
+    },
+    {
+        "frame_number": 11,
+        "inference_time": 2.0863211154937744,
+        "detections": 1
+    },
+    {
+        "frame_number": 12,
+        "inference_time": 2.062331438064575,
+        "detections": 2
+    },
+    {
+        "frame_number": 13,
+        "inference_time": 2.018932580947876,
+        "detections": 1
+    },
+    {
+        "frame_number": 14,
+        "inference_time": 2.0802254676818848,
+        "detections": 1
+    },
+    {
+        "frame_number": 15,
+        "inference_time": 2.047424554824829,
+        "detections": 0
+    },
+    {
+        "frame_number": 16,
+        "inference_time": 1.9957585334777832,
+        "detections": 2
+    },
+    {
+        "frame_number": 17,
+        "inference_time": 2.051363229751587,
+        "detections": 2
+    },
+    {
+        "frame_number": 18,
+        "inference_time": 2.150075674057007,
+        "detections": 2
+    },
+    {
+        "frame_number": 19,
+        "inference_time": 2.311023235321045,
+        "detections": 1
+    },
+    {
+        "frame_number": 20,
+        "inference_time": 2.382460355758667,
+        "detections": 1
+    },
+    {
+        "frame_number": 21,
+        "inference_time": 2.283996105194092,
+        "detections": 1
+    },
+    {
+        "frame_number": 22,
+        "inference_time": 2.2596218585968018,
+        "detections": 0
+    },
+    {
+        "frame_number": 23,
+        "inference_time": 2.286022186279297,
+        "detections": 1
+    },
+    {
+        "frame_number": 24,
+        "inference_time": 2.4571750164031982,
+        "detections": 1
+    },
+    {
+        "frame_number": 25,
+        "inference_time": 2.8543760776519775,
+        "detections": 2
+    },
+    {
+        "frame_number": 26,
+        "inference_time": 2.833512544631958,
+        "detections": 2
+    },
+    {
+        "frame_number": 27,
+        "inference_time": 2.4156577587127686,
+        "detections": 1
+    },
+    {
+        "frame_number": 28,
+        "inference_time": 2.334233522415161,
+        "detections": 1
+    },
+    {
+        "frame_number": 29,
+        "inference_time": 2.325343132019043,
+        "detections": 1
+    },
+    {
+        "frame_number": 30,
+        "inference_time": 2.339265823364258,
+        "detections": 1
+    },
+    {
+        "frame_number": 31,
+        "inference_time": 2.350219964981079,
+        "detections": 1
+    },
+    {
+        "frame_number": 32,
+        "inference_time": 2.7978363037109375,
+        "detections": 1
+    },
+    {
+        "frame_number": 33,
+        "inference_time": 4.0532073974609375,
+        "detections": 2
+    },
+    {
+        "frame_number": 34,
+        "inference_time": 2.881800889968872,
+        "detections": 2
+    },
+    {
+        "frame_number": 35,
+        "inference_time": 2.356931447982788,
+        "detections": 3
+    },
+    {
+        "frame_number": 36,
+        "inference_time": 2.2634291648864746,
+        "detections": 3
+    },
+    {
+        "frame_number": 37,
+        "inference_time": 6.160985708236694,
+        "detections": 3
+    },
+    {
+        "frame_number": 38,
+        "inference_time": 6.056107521057129,
+        "detections": 3
+    },
+    {
+        "frame_number": 39,
+        "inference_time": 2.752992630004883,
+        "detections": 3
+    },
+    {
+        "frame_number": 40,
+        "inference_time": 2.890798807144165,
+        "detections": 3
+    },
+    {
+        "frame_number": 41,
+        "inference_time": 2.6405346393585205,
+        "detections": 3
+    },
+    {
+        "frame_number": 42,
+        "inference_time": 2.658050537109375,
+        "detections": 3
+    },
+    {
+        "frame_number": 43,
+        "inference_time": 2.690610408782959,
+        "detections": 2
+    },
+    {
+        "frame_number": 44,
+        "inference_time": 2.242283821105957,
+        "detections": 2
+    },
+    {
+        "frame_number": 45,
+        "inference_time": 2.2554633617401123,
+        "detections": 1
+    },
+    {
+        "frame_number": 46,
+        "inference_time": 2.7096023559570312,
+        "detections": 1
+    },
+    {
+        "frame_number": 47,
+        "inference_time": 3.4430298805236816,
+        "detections": 0
+    },
+    {
+        "frame_number": 48,
+        "inference_time": 2.5010838508605957,
+        "detections": 0
+    },
+    {
+        "frame_number": 49,
+        "inference_time": 2.626530647277832,
+        "detections": 0
+    },
+    {
+        "frame_number": 50,
+        "inference_time": 3.6350929737091064,
+        "detections": 0
+    },
+    {
+        "frame_number": 51,
+        "inference_time": 2.5574569702148438,
+        "detections": 0
+    },
+    {
+        "frame_number": 52,
+        "inference_time": 2.5596039295196533,
+        "detections": 0
+    },
+    {
+        "frame_number": 53,
+        "inference_time": 2.3843681812286377,
+        "detections": 0
+    },
+    {
+        "frame_number": 54,
+        "inference_time": 2.181028366088867,
+        "detections": 0
+    },
+    {
+        "frame_number": 55,
+        "inference_time": 2.674687623977661,
+        "detections": 0
+    },
+    {
+        "frame_number": 56,
+        "inference_time": 3.006603956222534,
+        "detections": 0
+    },
+    {
+        "frame_number": 57,
+        "inference_time": 2.487828254699707,
+        "detections": 0
+    },
+    {
+        "frame_number": 58,
+        "inference_time": 2.186392307281494,
+        "detections": 0
+    },
+    {
+        "frame_number": 59,
+        "inference_time": 2.187103033065796,
+        "detections": 0
+    },
+    {
+        "frame_number": 60,
+        "inference_time": 2.2511074542999268,
+        "detections": 0
+    },
+    {
+        "frame_number": 61,
+        "inference_time": 2.1449713706970215,
+        "detections": 0
+    },
+    {
+        "frame_number": 62,
+        "inference_time": 2.612151622772217,
+        "detections": 0
+    },
+    {
+        "frame_number": 63,
+        "inference_time": 2.4683258533477783,
+        "detections": 0
+    },
+    {
+        "frame_number": 64,
+        "inference_time": 2.4008584022521973,
+        "detections": 0
+    },
+    {
+        "frame_number": 65,
+        "inference_time": 2.326368808746338,
+        "detections": 0
+    },
+    {
+        "frame_number": 66,
+        "inference_time": 2.3268589973449707,
+        "detections": 0
+    },
+    {
+        "frame_number": 67,
+        "inference_time": 2.210510730743408,
+        "detections": 0
+    },
+    {
+        "frame_number": 68,
+        "inference_time": 2.33292555809021,
+        "detections": 0
+    },
+    {
+        "frame_number": 69,
+        "inference_time": 2.4670557975769043,
+        "detections": 0
+    },
+    {
+        "frame_number": 70,
+        "inference_time": 2.2132837772369385,
+        "detections": 0
+    },
+    {
+        "frame_number": 71,
+        "inference_time": 2.1976723670959473,
+        "detections": 0
+    },
+    {
+        "frame_number": 72,
+        "inference_time": 2.545926094055176,
+        "detections": 0
+    },
+    {
+        "frame_number": 73,
+        "inference_time": 2.3642678260803223,
+        "detections": 0
+    },
+    {
+        "frame_number": 74,
+        "inference_time": 2.113981246948242,
+        "detections": 0
+    },
+    {
+        "frame_number": 75,
+        "inference_time": 2.5816829204559326,
+        "detections": 0
+    },
+    {
+        "frame_number": 76,
+        "inference_time": 2.4984676837921143,
+        "detections": 0
+    },
+    {
+        "frame_number": 77,
+        "inference_time": 2.3249216079711914,
+        "detections": 0
+    },
+    {
+        "frame_number": 78,
+        "inference_time": 2.9037225246429443,
+        "detections": 0
+    },
+    {
+        "frame_number": 79,
+        "inference_time": 2.1868598461151123,
+        "detections": 0
+    },
+    {
+        "frame_number": 80,
+        "inference_time": 2.3414323329925537,
+        "detections": 0
+    },
+    {
+        "frame_number": 81,
+        "inference_time": 2.318906307220459,
+        "detections": 0
+    },
+    {
+        "frame_number": 82,
+        "inference_time": 2.532371759414673,
+        "detections": 0
+    },
+    {
+        "frame_number": 83,
+        "inference_time": 2.5539710521698,
+        "detections": 0
+    },
+    {
+        "frame_number": 84,
+        "inference_time": 2.727571725845337,
+        "detections": 0
+    },
+    {
+        "frame_number": 85,
+        "inference_time": 2.8201253414154053,
+        "detections": 0
+    },
+    {
+        "frame_number": 86,
+        "inference_time": 2.667302370071411,
+        "detections": 0
+    },
+    {
+        "frame_number": 87,
+        "inference_time": 2.672105312347412,
+        "detections": 0
+    },
+    {
+        "frame_number": 88,
+        "inference_time": 2.3195056915283203,
+        "detections": 0
+    },
+    {
+        "frame_number": 89,
+        "inference_time": 2.5386152267456055,
+        "detections": 0
+    },
+    {
+        "frame_number": 90,
+        "inference_time": 2.4842700958251953,
+        "detections": 0
+    },
+    {
+        "frame_number": 91,
+        "inference_time": 2.789757013320923,
+        "detections": 0
+    },
+    {
+        "frame_number": 92,
+        "inference_time": 2.4805195331573486,
+        "detections": 0
+    }
+]

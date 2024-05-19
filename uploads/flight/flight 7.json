@@ -1,0 +1,7 @@
+{
+    "name": "flight 7",
+    "video_path": "uploads/user-uploads/DJI_0007.MOV",
+    "telemetry_path": "uploads/user-csv/Mar-30th-2024-01-26PM-Flight-Airdata.csv",
+    "map_generated": true,
+    "prediction_done": true
+}

@@ -1,0 +1,17 @@
+[
+    {
+        "image": "moviememe.png",
+        "prediction_time": 2.364,
+        "detection_count": 1
+    },
+    {
+        "image": "moviememe.png",
+        "prediction_time": 2.106,
+        "detection_count": 0
+    },
+    {
+        "image": "moviememe.png",
+        "prediction_time": 2.491,
+        "detection_count": 1
+    }
+]

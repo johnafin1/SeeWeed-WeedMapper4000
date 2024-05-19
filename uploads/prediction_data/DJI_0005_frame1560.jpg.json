@@ -1,0 +1,12 @@
+[
+    {
+        "image": "DJI_0005_frame1560.jpg",
+        "prediction_time": 2.137,
+        "detection_count": 1
+    },
+    {
+        "image": "DJI_0005_frame1560.jpg",
+        "prediction_time": 3.909,
+        "detection_count": 0
+    }
+]
