@@ -49,6 +49,9 @@ def allowed_file(filename):
     ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'mp4', 'MOV', 'mov'])
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS    
 
+def allowed_img_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_IMAGE_EXTENSIONS
+
 def allowed_movie_file(filename):
     ALLOWED_MOVIE_EXTENSIONS = {'mp4', 'avi', 'mov', 'MOV'}
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_MOVIE_EXTENSIONS
