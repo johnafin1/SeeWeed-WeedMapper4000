@@ -14,7 +14,7 @@ from werkzeug.utils import secure_filename
 from utils.utils import (allowed_file, allowed_movie_file, seed_everything,
                          check_hardware, get_weight_path, get_pred_folder_path,
                          get_splitter, get_user_csv_paths, allowed_csv_file, get_user_uploads_paths, get_map_data_folder_path,
-                         get_prediction_data_folder_path, get_flight_folder_path, ALLOWED_MOVIE_EXTENSIONS, ALLOWED_IMAGE_EXTENSIONS, ALLOWED_EXTENSIONS)
+                         get_prediction_data_folder_path, get_flight_folder_path, allowed_img_file, ALLOWED_MOVIE_EXTENSIONS, ALLOWED_IMAGE_EXTENSIONS, ALLOWED_EXTENSIONS)
 from predict import Yolov8
 import json
 
@@ -120,7 +120,7 @@ def create_or_update_flight():
 def home():
     return render_template('home.html')
 
-@app.route('/', methods=['POST'])
+@app.route('/upload_and_process_file', methods=['POST'])
 def upload_and_process_file():
     if 'file[]' not in request.files:
         flash('No file part')
@@ -128,12 +128,11 @@ def upload_and_process_file():
     
     files = request.files.getlist('file[]')
     for file in files:
-        if file and allowed_file(file.filename):
+        if file and allowed_img_file(file.filename):
             filename = secure_filename(file.filename)
             file_path = os.path.join(upload_img_folder, filename)
             try:
                 file.save(file_path)
-                # Here you would trigger any specific model processing
                 flash('File(s) successfully uploaded')
             except Exception as e:
                 flash(f"Error saving file: {e}")
@@ -141,8 +140,6 @@ def upload_and_process_file():
         else: 
             flash('File type not allowed')
             return redirect(request.url)
-
-    # Here you can redirect to a new page that handles further processing or displaying
     return redirect(url_for('display_uploads'))
 
 @app.route('/upload_flight', methods=['POST'])
