@@ -11,6 +11,10 @@ Download best-run2.onnx weight file from [here](https://drive.google.com/file/d/
 Before running the docker image, delete all the examples in uploads. Each folder contains parts of a flight object. 
 If you want to see them as examples then leave them.
 
+**Before starting**
+MAKE SURE to include a new file called .env which has a google maps api key. Contact jgf840@uowmail.edu.au for his if you need it. The heat map functionality does incur small costs. The file's content look like the below:
+GOOGLE_API_KEY="insert api key here"
+
 ### 2 - Docker Requirements
 
 Before you build Docker Image, make sure you have enough space in your system because the docker image will take 5GB of your storage. 
