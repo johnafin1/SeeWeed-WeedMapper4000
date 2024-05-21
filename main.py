@@ -305,7 +305,7 @@ def display_upload_video(filename):
         mime_type = 'application/octet-stream'  # Fallback MIME type
 
     try:
-        return send_from_directory(upload_folder, safe_filename, mimetype=mime_type)
+        return send_from_directory(upload_folder, safe_filename)
     except Exception as e:
         return str(e), 404
 
@@ -328,10 +328,10 @@ def display_pred_video(filename):
     try:
         # First try to serve the processed video if it exists
         if os.path.exists(os.path.join(result_folder, processed_filename)):
-            return send_from_directory(result_folder, processed_filename, mime_type=mime_type)
+            return send_from_directory(result_folder, processed_filename)
         # Fall back to the original video if the processed one isn't available
         elif os.path.exists(os.path.join(result_folder, safe_filename)):
-            return send_from_directory(result_folder, safe_filename, mime_type=mime_type)
+            return send_from_directory(result_folder, safe_filename)
         else:
             raise FileNotFoundError("Video not found")
     except Exception as e:
