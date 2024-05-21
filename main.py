@@ -249,9 +249,8 @@ def generate_map(flight_name):
         try:
             flight.generate_map()
             map_path = flight.get_map_data_path()
-            map_html = flight.generate_map_html()
             if map_path:
-                return jsonify({'success': True, 'message': 'Map generated successfully.', 'map_url': url_for('display_map', map_filename=map_path)})
+                return jsonify({'success': True, 'message': 'Map generated successfully.', 'map_url': url_for('display_map', flight_name=map_path)})
             else:
                 return jsonify({'success': False, 'message': 'Map generation failed.'})
         except Exception as e:
