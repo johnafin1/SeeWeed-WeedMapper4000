@@ -110,13 +110,15 @@ class Flight:
         try:
             with open(prediction_data_path, 'r') as file:
                 prediction_data = json.load(file)
-            return prediction_data
+            # Access the second item in the list, which contains the frame data
+            frame_data = prediction_data[1]  # Assuming the first item is the summary and the second is the detailed frame data
+            return frame_data
         except FileNotFoundError:
             logging.error(f"No prediction data found for {self.name}.")
-            return None
+            return []
         except Exception as e:
             logging.error(f"Failed to load prediction data for {self.name}: {e}")
-            return None
+            return []
 
     def integrate_telemetry_with_predictions(self, telemetry_data, detection_data):
     # Assume predictions is a list of dicts with keys: frame_number, detections
@@ -129,8 +131,12 @@ class Flight:
         telemetry_data['frame_number'] = (telemetry_data['time(millisecond)'] / 1000).astype(int) #need to replace with framerate variable todo
         
         for prediction in detection_data:
-            frame_number = prediction['frame_number']
-            matching_telemetry = telemetry_data[telemetry_data['frame_number'] == frame_number]
+            try:
+                frame_number = prediction['frame_number']
+                detection_count = prediction['detection_count']
+                matching_telemetry = telemetry_data[telemetry_data['frame_number'] == frame_number]
+            except Exception as e:
+                return results
             
             if not matching_telemetry.empty:
                 lat = matching_telemetry['latitude'].values[0]
@@ -141,7 +147,8 @@ class Flight:
                     'frame_number': frame_number,
                     'latitude': lat,
                     'longitude': lon,
-                    'detections': prediction['detections']
+                    'detections': detection_count,
+                    #'detection_specs': prediction['detections']
                 }
                 results.append(result)
     
@@ -186,7 +193,7 @@ class Flight:
         map_data_file_path = self.get_map_data_path()
         with open(map_data_file_path, 'w') as file:
             json.dump(map_data, file, indent=4)
-        self.prediction_done = True
+        self.map_generated = True
         self.save_flight()
 
         
