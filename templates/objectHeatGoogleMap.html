@@ -3,40 +3,36 @@
 {% block title %}Heat Map of {{ flight_name }}{% endblock %}
 
 {% block content %}
-<html>
-<head>
-    <title>Heat Map of {{ flight_name }}</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{api_key}}&callback=initMap&loading=async&libraries=visualization&callback=initMap" async defer></script>
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
+<div>
     <h3>Heat map of video: {{ flight_name }}</h3>
-    <div id="map"></div>
+    <div id="map" style="height: 400px; width: 100%;"></div>
+
     <script>
-        function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 13,
-                center: {lat: -34.4278, lng: 150.8931}  // This should ideally be dynamic based on actual data
-            });
+    function initMap() {
+        var centerCoords = {lat: -34.4278, lng: 150.8931}; // Default center
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: centerCoords
+        });
 
-            var heatmapData = [
-                {% for data_point in map_data %}
-                {location: new google.maps.LatLng({{ data_point.latitude }}, {{ data_point.longitude }}), weight: {{ data_point.detections }}},
-                {% endfor %}
-            ];
+        var heatmapData = [
+            {% for data_point in map_data %}
+            new google.maps.LatLng({{ data_point.latitude }}, {{ data_point.longitude }}),
+            {% endfor %}
+        ];
 
-            var heatmap = new google.maps.visualization.HeatmapLayer({
-                data: heatmapData,
-                map: map
-            });
-        }
+        var heatmap = new google.maps.visualization.HeatmapLayer({
+            data: heatmapData,
+            map: map
+        });
+    }
+
+    // Asynchronously load the Google Maps script, allowing for the callback to initMap
+    var script = document.createElement('script');
+    script.src = 'https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=visualization&callback=initMap';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
     </script>
-</body>
-</html>
-
+</div>
 {% endblock %}
